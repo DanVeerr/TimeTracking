@@ -1,0 +1,33 @@
+﻿@model TimeTracking.Models.User
+@{
+    ViewBag.Title = "Удаление пользователя";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>Имя</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Firstname)
+        </dd>
+        <dt>Фамилия</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+        <dt>Отчество</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Patronymic)
+        </dd>
+        <dt>Email</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+
+    <div>
+        <form asp-controller="Home" asp-action="Delete" method="post">
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Удалить" />
+            </div>
+        </form>
+    </div>
+</div>

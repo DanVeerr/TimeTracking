@@ -1,0 +1,64 @@
+﻿@model TimeTracking.ViewModels.ReportsViewModel
+
+@{
+    ViewData["Title"] = "Отчеты";
+}
+<form class="form-inline">
+    <label>Выберите пользователся:   </label>
+    <select name="userId" class="form-select">
+        @foreach (TimeTracking.ViewModels.UserModel user in Model.Users)
+        {
+
+            if (ViewBag.Id!=null && ViewBag.Id==user.Id)
+            {
+                <option selected="selected" value="@user.Id">@user.Surname</option>
+            }
+            else
+            {
+                <option value="@user.Id">@user.Surname</option>
+            }
+
+
+
+        }
+    </select>
+    <input type="submit" class="btn btn-primary" value="Выбрать" />
+</form>
+<br />
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+
+            <td scope="col" align="center">№</td>
+            <td scope="col" align="center">Фамилия пользователь:</td>
+            <td scope="col" align="center">Количество часов:</td>
+            <td scope="col" align="center">Дата отчета:</td>
+            <td scope="col" align="center">Действия:</td>
+        </tr>
+    </thead>
+        @foreach (Report p in Model.Reports)
+        {@foreach (TimeTracking.ViewModels.UserModel user in Model.Users)
+            {
+                @if (user.Id == p.OwnerId)
+                {
+                    <tr>
+                        <td scope="row" align="center">@p.Id</td>
+                        <td align="center">@user.Surname</td>
+                        <td align="center">@p.Hours</td>
+                        <td align="center">@p.Date.ToLongDateString()</td>
+                        <td align="center">
+                            <a asp-action="Details" asp-controller="Tracking" asp-route-id="@p.Id" asp-route-userid="@user.Id">Подробнее</a> |
+                            <a asp-action="Edit" asp-controller="Tracking" asp-route-id="@p.Id" asp-route-userid="@user.Id">Изменить</a> |
+                            <a asp-action="Delete" asp-controller="Tracking" asp-route-id="@p.Id" asp-route-userid="@user.Id">Удалить</a>
+                        </td>
+                    </tr>
+                }
+
+            }
+
+
+    }
+</table>
+<a asp-action="Create" asp-controller="Tracking" asp-route-report.ownerid="@ViewData["Message"]">Добавить отчет</a>
+
+

@@ -1,0 +1,37 @@
+﻿@model TimeTracking.Models.Report
+@{
+    ViewBag.Title = "Удаление отчета";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>Примечание:</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+        <dt>Количество часов:</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hours)
+        </dd>
+        <dt>Дата:</dt>
+        <dd>
+            @Model.Date.ToLongDateString()
+        </dd>
+        @if (ViewBag.OwnerSurname != null)
+        {
+            <dt>Пользователь:</dt>
+            <dd>
+                @ViewBag.OwnerSurname
+            </dd>
+        }
+
+    </dl>
+
+    <div>
+        <form asp-controller="Tracking" asp-action="Delete" method="post">
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Удалить" />
+            </div>
+        </form>
+    </div>
+</div>

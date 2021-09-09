@@ -1,0 +1,23 @@
+﻿@model TimeTracking.Models.Report
+@{
+    ViewBag.Title = "Отчет";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>Идентификатор</dt>
+        <dd>@Model.Id</dd>
+        <dt>Примечание</dt>
+        <dd>@Model.Notes</dd>
+        <dt>Количество часов</dt>
+        <dd>@Model.Hours</dd>
+        @if (ViewBag.OwnerSurname != null)
+        {
+            <dt>Пользователь</dt>
+            <dd>@ViewBag.OwnerSurmame</dd>
+        }
+        <dt>Дата</dt>
+        <dd>@Model.Date.ToLongDateString()</dd>
+
+    </dl>
+</div>
