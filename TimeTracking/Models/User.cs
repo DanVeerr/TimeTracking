@@ -17,7 +17,7 @@ namespace TimeTracking.Models
         public string Surname { get; set; }
         public string Patronymic { get; set; }
        
-        [Remote(action: "CheckEmail", controller: "Home", ErrorMessage = "Email уже используется")]
+        [Remote(action: "CheckEmail", controller: "Home", ErrorMessage = "Email уже используется", AdditionalFields = nameof(Id))]
         [Required(ErrorMessage = "Не указан электронный адрес")]
         [EmailAddress(ErrorMessage = "Некорректный электронный адрес")]
         public string Email { get; set; }

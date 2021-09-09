@@ -21,10 +21,10 @@ namespace TimeTracking.Controllers
             _logger = logger;
             db = context;
         }
-        public bool CheckEmail(User user)
+        public bool CheckEmail(string Email, int Id)
         {
             
-            if (db.Users.Where(c => c.Email == user.Email).Count() == 0)
+            if (db.Users.Where(c => c.Email == Email && c.Id != Id).Count() == 0)
             {
                 return (true);
             }
@@ -57,6 +57,10 @@ namespace TimeTracking.Controllers
             if (id != null)
             {
                 User user = await db.Users.FirstOrDefaultAsync(p => p.Id == id);
+                ViewBag.Email = user.Email;
+                user.Email = "";
+                db.Users.Update(user);
+                await db.SaveChangesAsync();
                 if (user != null)
                     return View(user);
             }
@@ -85,8 +89,6 @@ namespace TimeTracking.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int? id)
         {
-            int asd = 0;
-            int sad = 31984 / asd;
             if (id != null)
             {
                 User user = await db.Users.FirstOrDefaultAsync(p => p.Id == id);

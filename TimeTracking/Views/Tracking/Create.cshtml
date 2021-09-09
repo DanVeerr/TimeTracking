@@ -21,8 +21,20 @@
         <span asp-validation-for="Date"></span>
     </div>
     <div class="form-group">
-        <label asp-for="OwnerId" class="control-label">Пользователь</label><br />
-        <select name="Ownerid" asp-items="ViewBag.Users" class="form-control"></select>
+        <label>Выберите пользователся:   </label>
+        <select name="ownerId" class="form-select">
+            @foreach (TimeTracking.ViewModels.UserModel user in ViewBag.Users)
+            {
+                if (ViewBag.Ownerid != null && ViewBag.Ownerid == user.Id)
+                {
+                    <option selected="selected" value="@user.Id">@user.Surname</option>
+                }
+                else
+                {
+                    <option value="@user.Id">@user.Surname</option>
+                }
+            }
+        </select>
     </div>
     <div class="form-group">
         <input type="submit" class="btn btn-primary" value="Добавить" />

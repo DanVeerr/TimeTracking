@@ -19,10 +19,10 @@
     </div>
     <div class="form-group">
         <label asp-for="Email" class="control-label">Email</label>
-        <input type="text" asp-for="Email" class="form-control" /><br />
+        <input type="text" value="@ViewBag.Email" asp-for="Email" class="form-control" /><br />
     </div>
     <div class="form-group">
-        <input type="submit" value="Сохранить" class="btn btn-primary" />
+        <input  type="submit" value="Сохранить" class="btn btn-primary" />
     </div>
 </form>
 @section scripts

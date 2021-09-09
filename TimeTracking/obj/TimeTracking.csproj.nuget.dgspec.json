@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\danii\\source\\repos\\TimeTracking\\TimeTracking\\TimeTracking.csproj": {}
+    "C:\\Users\\danii\\Documents\\GitHub\\TimeTracking\\TimeTracking\\TimeTracking.csproj": {}
   },
   "projects": {
-    "C:\\Users\\danii\\source\\repos\\TimeTracking\\TimeTracking\\TimeTracking.csproj": {
+    "C:\\Users\\danii\\Documents\\GitHub\\TimeTracking\\TimeTracking\\TimeTracking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\danii\\source\\repos\\TimeTracking\\TimeTracking\\TimeTracking.csproj",
+        "projectUniqueName": "C:\\Users\\danii\\Documents\\GitHub\\TimeTracking\\TimeTracking\\TimeTracking.csproj",
         "projectName": "TimeTracking",
-        "projectPath": "C:\\Users\\danii\\source\\repos\\TimeTracking\\TimeTracking\\TimeTracking.csproj",
+        "projectPath": "C:\\Users\\danii\\Documents\\GitHub\\TimeTracking\\TimeTracking\\TimeTracking.csproj",
         "packagesPath": "C:\\Users\\danii\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\danii\\source\\repos\\TimeTracking\\TimeTracking\\obj\\",
+        "outputPath": "C:\\Users\\danii\\Documents\\GitHub\\TimeTracking\\TimeTracking\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

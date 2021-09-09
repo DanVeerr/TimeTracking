@@ -39,11 +39,11 @@ namespace TimeTracking.Controllers
 
         }
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create(int? ownerid)
         {
             List<User> users = await db.Users.ToListAsync();
-            ViewBag.Users =  new SelectList(users, "Id", "Surname");
-            
+            ViewBag.Users = await db.Users.Select(c => new UserModel { Id = c.Id, Surname = c.Surname }).ToListAsync();
+            ViewBag.OwnerId = ownerid;
             return View();
         }
         [HttpPost]
@@ -74,6 +74,8 @@ namespace TimeTracking.Controllers
         {
             if (id != null)
             {
+                List<User> users = await db.Users.ToListAsync();
+                ViewBag.Users = await db.Users.Select(c => new UserModel { Id = c.Id, Surname = c.Surname }).ToListAsync();
                 Report report = await db.Reports.FirstOrDefaultAsync(p => p.Id == id);
                 ViewBag.Owner = await db.Users.FirstOrDefaultAsync(p => p.Id == UserId);
                 if (report != null)
