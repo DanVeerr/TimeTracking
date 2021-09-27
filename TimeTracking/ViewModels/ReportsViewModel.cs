@@ -8,6 +8,7 @@ namespace TimeTracking.ViewModels
 {
     public class ReportsViewModel
     {
+        public int? UserId { get; set; }
         public IEnumerable<Report> Reports { get; set; }
         public IEnumerable<UserModel> Users { get; set; }
     }

@@ -1,35 +1,38 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
+using Serilog;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using TimeTracking.Models;
+using TimeTracking.Services;
 
 namespace TimeTracking.Controllers
 {
-    public class HomeController : Controller
+    public class UserController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+       
         private UsersContext db;
+        private UserService userService;
 
-
-        public HomeController(ILogger<HomeController> logger, UsersContext context)
+        public UserController(UsersContext context, UserService userService)
         {
-            _logger = logger;
+            
             db = context;
+            this.userService = userService;
         }
+
         public bool CheckEmail(string Email, int Id)
         {
             
             if (db.Users.Where(c => c.Email == Email && c.Id != Id).Count() == 0)
             {
+
                 return (true);
             }
             else
             {
+
                 return (false);
             }
 
@@ -37,6 +40,7 @@ namespace TimeTracking.Controllers
         
         public IActionResult Create()
         {
+
             return View();
         }
         
@@ -46,12 +50,14 @@ namespace TimeTracking.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
-                await db.SaveChangesAsync();
+                await userService.Create(user);
+                
                 return RedirectToAction("Users");
             }
+
             return View(user);
         }
+
         public async Task<IActionResult> Edit(int? id)
         {
             if (id != null)
@@ -61,18 +67,24 @@ namespace TimeTracking.Controllers
                 user.Email = "";
                 db.Users.Update(user);
                 await db.SaveChangesAsync();
-                if (user != null)
-                    return View(user);
+
+                if (user == null)
+                    return NotFound();
+
+                return View(user);
             }
+
             return NotFound();
         }
+
         [HttpPost]
         public async Task<IActionResult> Edit(User user)
         {
-            db.Users.Update(user);
-            await db.SaveChangesAsync();
+            await userService.Edit(user);
+            Log.Information("Edit");
             return RedirectToAction("Users");
         }
+
         [HttpGet]
         [ActionName("Delete")]
         public async Task<IActionResult> ConfirmDelete(int? id)
@@ -80,9 +92,11 @@ namespace TimeTracking.Controllers
             if (id != null)
             {
                 User user = await db.Users.FirstOrDefaultAsync(p => p.Id == id);
+
                 if (user != null)
                     return View(user);
             }
+
             return NotFound();
         }
 
@@ -91,24 +105,22 @@ namespace TimeTracking.Controllers
         {
             if (id != null)
             {
-                User user = await db.Users.FirstOrDefaultAsync(p => p.Id == id);
-                if (user != null)
+                if (await userService.Delete(id))
                 {
-                    db.Users.Remove(user);
-                    await db.SaveChangesAsync();
+
                     return RedirectToAction("Users");
                 }
             }
+
             return NotFound();
         }
+
         public async Task<IActionResult> Users()
         {
-            
+            Log.Information("Main action");
+
             return View(await db.Users.ToListAsync());
-
         }
-
-        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error(int? code)

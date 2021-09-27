@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using TimeTracking.Models;
@@ -22,6 +23,7 @@ namespace TimeTracking.Controllers
             _logger = logger;
             db = context;
         }
+
         public bool CheckDate(Report report)
         {
             if (report.Date.Subtract(DateTime.Now).TotalDays <= 0)
@@ -30,6 +32,7 @@ namespace TimeTracking.Controllers
                 {
                     return (true);
                 }
+
                 return (false);
             }
             else
@@ -38,14 +41,17 @@ namespace TimeTracking.Controllers
             }
 
         }
+
         [HttpGet]
         public async Task<IActionResult> Create(int? ownerid)
         {
             List<User> users = await db.Users.ToListAsync();
             ViewBag.Users = await db.Users.Select(c => new UserModel { Id = c.Id, Surname = c.Surname }).ToListAsync();
             ViewBag.OwnerId = ownerid;
+
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Create(Report report)
         {
@@ -53,23 +59,29 @@ namespace TimeTracking.Controllers
             {
                 db.Reports.Add(report);
                 await db.SaveChangesAsync();
+
                 return RedirectToAction("Reports");
             }
+
             return NotFound();
 
         }
+
         public async Task<IActionResult> Details(int? id, int? UserId)
         {
             if (id != null)
             {
                 Report report = await db.Reports.FirstOrDefaultAsync(p => p.Id == id);
+
                 if (report != null)
                     return View(report);
                 ViewBag.Owner = await db.Users.FirstOrDefaultAsync(p => p.Id == UserId);
 
             }
+
             return NotFound();
         }
+
         public async Task<IActionResult> Edit(int? id, int? UserId)
         {
             if (id != null)
@@ -78,18 +90,23 @@ namespace TimeTracking.Controllers
                 ViewBag.Users = await db.Users.Select(c => new UserModel { Id = c.Id, Surname = c.Surname }).ToListAsync();
                 Report report = await db.Reports.FirstOrDefaultAsync(p => p.Id == id);
                 ViewBag.Owner = await db.Users.FirstOrDefaultAsync(p => p.Id == UserId);
+
                 if (report != null)
                     return View(report);
             }
+
             return NotFound();
         }
+
         [HttpPost]
         public async Task<IActionResult> Edit(Report report)
         {
             db.Reports.Update(report);
             await db.SaveChangesAsync();
+
             return RedirectToAction("Reports");
         }
+
         [HttpGet]
         [ActionName("Delete")]
         public async Task<IActionResult> ConfirmDelete(int? id, int? UserId)
@@ -102,6 +119,7 @@ namespace TimeTracking.Controllers
                     User us = await db.Users.FirstOrDefaultAsync(p => p.Id == UserId);
                     ViewBag.OwnerSurname = us.Surname;
                 }
+
                 if (report != null)
                     return View(report);
             }
@@ -118,21 +136,29 @@ namespace TimeTracking.Controllers
                 {
                     db.Reports.Remove(report);
                     await db.SaveChangesAsync();
+
                     return RedirectToAction("Reports");
                 }
             }
+
             return NotFound();
         }
+
         [HttpGet]
         public async Task<IActionResult> Reports(int? UserId)
         {
+            
+            if (UserId !=null &&!db.Users.Any(c => c.Id == UserId))
+            {
+                return View("Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, Code = 999 });
+            }
             List<UserModel> userModel = await db.Users.Select(c => new UserModel { Id = c.Id, Surname = c.Surname }).ToListAsync();
             List<Report> reports = await db.Reports.ToListAsync();
             ReportsViewModel rvm = new ReportsViewModel { Users = userModel, Reports = reports };
             if (UserId != null && UserId > 0)
                 rvm.Reports = reports.Where(p => p.OwnerId == UserId);
-            
-            ViewBag.Id = UserId;
+            rvm.UserId = UserId;
+
             return View(rvm);
         }
     }

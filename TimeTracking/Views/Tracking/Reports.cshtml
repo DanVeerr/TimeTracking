@@ -9,7 +9,7 @@
         @foreach (TimeTracking.ViewModels.UserModel user in Model.Users)
         {
 
-            if (ViewBag.Id!=null && ViewBag.Id==user.Id)
+            if (Model.UserId != null && Model.UserId == user.Id)
             {
                 <option selected="selected" value="@user.Id">@user.Surname</option>
             }
@@ -59,6 +59,6 @@
 
     }
 </table>
-<a asp-action="Create" asp-controller="Tracking" asp-route-ownerid="@ViewBag.Id">Добавить отчет</a>
+<a asp-action="Create" asp-controller="Tracking" asp-route-ownerid="@Model.UserId">Добавить отчет</a>
 
 

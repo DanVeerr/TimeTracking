@@ -5,11 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Serilog.Debugging;
+using Serilog;
 using TimeTracking.Models;
+using TimeTracking.Services;
 
 namespace TimeTracking
 {
@@ -28,7 +27,7 @@ namespace TimeTracking
             services.AddControllersWithViews();
             services.AddDbContext<UsersContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            
+            services.AddScoped<UserService>();
             
         }
 
@@ -41,22 +40,20 @@ namespace TimeTracking
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseStatusCodePagesWithRedirects("/Home/Error?code={0}");
+                app.UseExceptionHandler("/User/Error");
+                app.UseStatusCodePagesWithRedirects("/User/Error?code={0}");
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Users}/{id?}");
+                    pattern: "{controller=User}/{action=Users}/{id?}");
             });
         }
     }
