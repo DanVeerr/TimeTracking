@@ -35,9 +35,9 @@ namespace TimeTracking.Services
         }
 
         /// <summary>
-        /// 
+        /// Изменение пользователя
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="user">изменяемый пользователь</param>
         public async Task<bool> Edit(User user)
         {
             db.Users.Update(user);
@@ -46,10 +46,10 @@ namespace TimeTracking.Services
         }
 
         /// <summary>
-        /// 
+        /// Удаление пользователя
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>Отчет об удалении</returns>
         public async Task<bool> Delete(int? id)
         {
             User user = await db.Users.FirstOrDefaultAsync(p => p.Id == id);

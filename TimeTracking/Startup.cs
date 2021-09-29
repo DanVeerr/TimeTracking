@@ -9,6 +9,7 @@ using Serilog.Debugging;
 using Serilog;
 using TimeTracking.Models;
 using TimeTracking.Services;
+using Serilog.Events;
 
 namespace TimeTracking
 {
@@ -44,11 +45,25 @@ namespace TimeTracking
                 app.UseStatusCodePagesWithRedirects("/User/Error?code={0}");
                 app.UseHsts();
             }
+            app.UseSerilogRequestLogging();
+            //(options =>
+            //{
+
+            //    options.MessageTemplate = "Handled {RequestPath}, {RequestId}";
+            //    options.GetLevel = (httpContext, elapsed, ex) => LogEventLevel.Information;
+            //    options.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>
+            //    {
+            //        diagnosticContext.Set("RequestId", httpContext.User.Identity);
+            //        diagnosticContext.Set("RequestHost", httpContext.Request.Host.Value);
+            //        diagnosticContext.Set("RequestScheme", httpContext.Request.Scheme);
+            //    }; 
+            //});
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

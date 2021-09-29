@@ -6,6 +6,7 @@ using Serilog;
 using Serilog.Events;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,13 +16,26 @@ namespace TimeTracking
     {
         public static void Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-            .Enrich.FromLogContext()
-            .MinimumLevel.Debug()
-            .WriteTo.File("log-.txt", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
 
+            //var configuration = new ConfigurationBuilder()
+            //    .SetBasePath(Directory.GetCurrentDirectory())
+            //    .AddJsonFile("appsettings.json")
+            //    .Build();
+
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.File("log-.txt", rollingInterval: RollingInterval.Day)
+                .MinimumLevel.Information()
+                .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
+                .Enrich.WithClientIp()
+                .Enrich.FromLogContext()
+                .CreateLogger();
+            //using (LogContext.PushProperty("A", 1))
+            //Log.Logger = new LoggerConfiguration()
+            //    //.MinimumLevel.Information()
+            //    //.Enrich.FromLogContext()
+            //    .ReadFrom.Configuration(configuration.GetSection("Serilog"))
+            //    .CreateLogger();
+            Log.Information("Starting up!");
             try
             {
                 Log.Information("Starting web host");
@@ -29,7 +43,7 @@ namespace TimeTracking
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "Host terminated unexpectedly");
+
             }
             finally
             {
@@ -40,6 +54,8 @@ namespace TimeTracking
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .UseSerilog()
+                //.UseSerilog((context, services, configuration) => configuration
+                //    .ReadFrom.Configuration(context.Configuration.GetSection("Serilog")))
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

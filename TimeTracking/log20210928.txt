@@ -1,0 +1,339 @@
+2021-09-28 17:06:16.841 +03:00 [INF] Starting up!
+2021-09-28 17:06:16.868 +03:00 [INF] Starting web host
+2021-09-28 17:06:17.364 +03:00 [INF] User profile is available. Using 'C:\Users\danii\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-28 17:06:17.507 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-09-28 17:06:17.507 +03:00 [INF] Hosting environment: Development
+2021-09-28 17:06:17.507 +03:00 [INF] Content root path: C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking
+2021-09-28 17:06:17.535 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/ - -
+2021-09-28 17:06:17.562 +03:00 [INF] Executing endpoint 'TimeTracking.Controllers.UserController.Users (TimeTracking)'
+2021-09-28 17:06:17.599 +03:00 [INF] Route matched with {action = "Users", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Users() on controller TimeTracking.Controllers.UserController (TimeTracking).
+2021-09-28 17:06:18.048 +03:00 [INF] Entity Framework Core 5.0.9 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-28 17:06:18.913 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-28 17:06:18.950 +03:00 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-09-28 17:06:18.952 +03:00 [INF] Main action
+2021-09-28 17:06:19.101 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-09-28 17:06:19.151 +03:00 [INF] Executing ViewResult, running view Users.
+2021-09-28 17:06:19.264 +03:00 [INF] Executed ViewResult - view Users executed in 113.6931ms.
+2021-09-28 17:06:19.265 +03:00 [INF] Executed action TimeTracking.Controllers.UserController.Users (TimeTracking) in 1665.2395ms
+2021-09-28 17:06:19.266 +03:00 [INF] Executed endpoint 'TimeTracking.Controllers.UserController.Users (TimeTracking)'
+2021-09-28 17:06:19.269 +03:00 [WRN] Handled /, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:06:19.275 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/ - - - 200 - text/html;+charset=utf-8 1741.5376ms
+2021-09-28 17:06:19.304 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - -
+2021-09-28 17:06:19.309 +03:00 [WRN] Handled /js/jquery-3.3.1.js, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:06:19.312 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - - - 404 - - 7.1935ms
+2021-09-28 17:06:20.461 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/ - -
+2021-09-28 17:06:20.461 +03:00 [INF] Executing endpoint 'TimeTracking.Controllers.UserController.Users (TimeTracking)'
+2021-09-28 17:06:20.462 +03:00 [INF] Route matched with {action = "Users", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Users() on controller TimeTracking.Controllers.UserController (TimeTracking).
+2021-09-28 17:06:20.464 +03:00 [INF] Entity Framework Core 5.0.9 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-28 17:06:20.466 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-28 17:06:20.467 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-09-28 17:06:20.468 +03:00 [INF] Main action
+2021-09-28 17:06:20.470 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-09-28 17:06:20.470 +03:00 [INF] Executing ViewResult, running view Users.
+2021-09-28 17:06:20.473 +03:00 [INF] Executed ViewResult - view Users executed in 2.8072ms.
+2021-09-28 17:06:20.473 +03:00 [INF] Executed action TimeTracking.Controllers.UserController.Users (TimeTracking) in 10.8812ms
+2021-09-28 17:06:20.473 +03:00 [INF] Executed endpoint 'TimeTracking.Controllers.UserController.Users (TimeTracking)'
+2021-09-28 17:06:20.473 +03:00 [WRN] Handled /, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:06:20.473 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/ - - - 200 - text/html;+charset=utf-8 12.2947ms
+2021-09-28 17:06:20.486 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - -
+2021-09-28 17:06:20.487 +03:00 [WRN] Handled /js/jquery-3.3.1.js, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:06:20.488 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - - - 404 - - 1.4809ms
+2021-09-28 17:06:20.915 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/Tracking/Reports - -
+2021-09-28 17:06:20.915 +03:00 [INF] Executing endpoint 'TimeTracking.Controllers.TrackingController.Reports (TimeTracking)'
+2021-09-28 17:06:20.922 +03:00 [INF] Route matched with {action = "Reports", controller = "Tracking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Reports(System.Nullable`1[System.Int32]) on controller TimeTracking.Controllers.TrackingController (TimeTracking).
+2021-09-28 17:06:20.945 +03:00 [INF] Entity Framework Core 5.0.9 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-28 17:06:20.949 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-28 17:06:20.950 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-09-28 17:06:20.994 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Surname]
+FROM [Users] AS [u]
+2021-09-28 17:06:20.999 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Date], [r].[Hours], [r].[Notes], [r].[OwnerId]
+FROM [Reports] AS [r]
+2021-09-28 17:06:21.009 +03:00 [INF] Executing ViewResult, running view Reports.
+2021-09-28 17:06:21.023 +03:00 [INF] Executed ViewResult - view Reports executed in 14.841ms.
+2021-09-28 17:06:21.023 +03:00 [INF] Executed action TimeTracking.Controllers.TrackingController.Reports (TimeTracking) in 100.5837ms
+2021-09-28 17:06:21.023 +03:00 [INF] Executed endpoint 'TimeTracking.Controllers.TrackingController.Reports (TimeTracking)'
+2021-09-28 17:06:21.023 +03:00 [WRN] Handled /Tracking/Reports, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:06:21.023 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/Tracking/Reports - - - 200 - text/html;+charset=utf-8 108.6164ms
+2021-09-28 17:06:21.042 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - -
+2021-09-28 17:06:21.042 +03:00 [WRN] Handled /js/jquery-3.3.1.js, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:06:21.043 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - - - 404 - - 0.8838ms
+2021-09-28 17:07:28.992 +03:00 [INF] Starting up!
+2021-09-28 17:07:29.021 +03:00 [INF] Starting web host
+2021-09-28 17:07:29.497 +03:00 [INF] User profile is available. Using 'C:\Users\danii\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-28 17:07:29.632 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-09-28 17:07:29.632 +03:00 [INF] Hosting environment: Development
+2021-09-28 17:07:29.632 +03:00 [INF] Content root path: C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking
+2021-09-28 17:07:29.655 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/ - -
+2021-09-28 17:07:29.676 +03:00 [INF] Executing endpoint 'TimeTracking.Controllers.UserController.Users (TimeTracking)'
+2021-09-28 17:07:29.709 +03:00 [INF] Route matched with {action = "Users", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Users() on controller TimeTracking.Controllers.UserController (TimeTracking).
+2021-09-28 17:07:30.064 +03:00 [INF] Entity Framework Core 5.0.9 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-28 17:07:30.287 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-28 17:07:30.313 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-09-28 17:07:30.315 +03:00 [INF] Main action
+2021-09-28 17:07:30.457 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-09-28 17:07:30.509 +03:00 [INF] Executing ViewResult, running view Users.
+2021-09-28 17:07:30.619 +03:00 [INF] Executed ViewResult - view Users executed in 112.0487ms.
+2021-09-28 17:07:30.620 +03:00 [INF] Executed action TimeTracking.Controllers.UserController.Users (TimeTracking) in 911.5645ms
+2021-09-28 17:07:30.621 +03:00 [INF] Executed endpoint 'TimeTracking.Controllers.UserController.Users (TimeTracking)'
+2021-09-28 17:07:30.623 +03:00 [WRN] Handled /, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:07:30.633 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/ - - - 200 - text/html;+charset=utf-8 978.7950ms
+2021-09-28 17:07:30.649 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - -
+2021-09-28 17:07:30.652 +03:00 [WRN] Handled /js/jquery-3.3.1.js, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:07:30.653 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - - - 404 - - 3.1688ms
+2021-09-28 17:07:31.995 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/ - -
+2021-09-28 17:07:31.995 +03:00 [INF] Executing endpoint 'TimeTracking.Controllers.UserController.Users (TimeTracking)'
+2021-09-28 17:07:31.996 +03:00 [INF] Route matched with {action = "Users", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Users() on controller TimeTracking.Controllers.UserController (TimeTracking).
+2021-09-28 17:07:31.997 +03:00 [INF] Entity Framework Core 5.0.9 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-28 17:07:32.000 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-28 17:07:32.001 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-09-28 17:07:32.001 +03:00 [INF] Main action
+2021-09-28 17:07:32.003 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-09-28 17:07:32.003 +03:00 [INF] Executing ViewResult, running view Users.
+2021-09-28 17:07:32.006 +03:00 [INF] Executed ViewResult - view Users executed in 2.991ms.
+2021-09-28 17:07:32.006 +03:00 [INF] Executed action TimeTracking.Controllers.UserController.Users (TimeTracking) in 10.8253ms
+2021-09-28 17:07:32.006 +03:00 [INF] Executed endpoint 'TimeTracking.Controllers.UserController.Users (TimeTracking)'
+2021-09-28 17:07:32.007 +03:00 [WRN] Handled /, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:07:32.007 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/ - - - 200 - text/html;+charset=utf-8 11.6629ms
+2021-09-28 17:07:32.018 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - -
+2021-09-28 17:07:32.019 +03:00 [WRN] Handled /js/jquery-3.3.1.js, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:07:32.020 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - - - 404 - - 2.4725ms
+2021-09-28 17:07:32.451 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/Tracking/Reports - -
+2021-09-28 17:07:32.451 +03:00 [INF] Executing endpoint 'TimeTracking.Controllers.TrackingController.Reports (TimeTracking)'
+2021-09-28 17:07:32.459 +03:00 [INF] Route matched with {action = "Reports", controller = "Tracking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Reports(System.Nullable`1[System.Int32]) on controller TimeTracking.Controllers.TrackingController (TimeTracking).
+2021-09-28 17:07:32.480 +03:00 [INF] Entity Framework Core 5.0.9 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-28 17:07:32.484 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-28 17:07:32.485 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-09-28 17:07:32.527 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Surname]
+FROM [Users] AS [u]
+2021-09-28 17:07:32.532 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Date], [r].[Hours], [r].[Notes], [r].[OwnerId]
+FROM [Reports] AS [r]
+2021-09-28 17:07:32.542 +03:00 [INF] Executing ViewResult, running view Reports.
+2021-09-28 17:07:32.556 +03:00 [INF] Executed ViewResult - view Reports executed in 14.6448ms.
+2021-09-28 17:07:32.556 +03:00 [INF] Executed action TimeTracking.Controllers.TrackingController.Reports (TimeTracking) in 96.9249ms
+2021-09-28 17:07:32.556 +03:00 [INF] Executed endpoint 'TimeTracking.Controllers.TrackingController.Reports (TimeTracking)'
+2021-09-28 17:07:32.556 +03:00 [WRN] Handled /Tracking/Reports, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:07:32.556 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/Tracking/Reports - - - 200 - text/html;+charset=utf-8 105.2688ms
+2021-09-28 17:07:32.576 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - -
+2021-09-28 17:07:32.576 +03:00 [WRN] Handled /js/jquery-3.3.1.js, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:07:32.577 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - - - 404 - - 1.6313ms
+2021-09-28 17:08:09.725 +03:00 [INF] Starting up!
+2021-09-28 17:08:09.755 +03:00 [INF] Starting web host
+2021-09-28 17:08:10.253 +03:00 [INF] User profile is available. Using 'C:\Users\danii\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-28 17:08:10.396 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-09-28 17:08:10.396 +03:00 [INF] Hosting environment: Development
+2021-09-28 17:08:10.396 +03:00 [INF] Content root path: C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking
+2021-09-28 17:08:10.423 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/ - -
+2021-09-28 17:08:10.446 +03:00 [INF] Executing endpoint 'TimeTracking.Controllers.UserController.Users (TimeTracking)'
+2021-09-28 17:08:10.488 +03:00 [INF] Route matched with {action = "Users", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Users() on controller TimeTracking.Controllers.UserController (TimeTracking).
+2021-09-28 17:08:10.902 +03:00 [INF] Entity Framework Core 5.0.9 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-28 17:08:11.140 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-28 17:08:11.165 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-09-28 17:08:11.167 +03:00 [INF] Main action
+2021-09-28 17:08:11.310 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-09-28 17:08:11.360 +03:00 [INF] Executing ViewResult, running view Users.
+2021-09-28 17:08:11.470 +03:00 [INF] Executed ViewResult - view Users executed in 110.9221ms.
+2021-09-28 17:08:11.471 +03:00 [INF] Executed action TimeTracking.Controllers.UserController.Users (TimeTracking) in 982.7944ms
+2021-09-28 17:08:11.472 +03:00 [INF] Executed endpoint 'TimeTracking.Controllers.UserController.Users (TimeTracking)'
+2021-09-28 17:08:11.474 +03:00 [INF] Handled /, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:08:11.491 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - -
+2021-09-28 17:08:11.492 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/ - - - 200 - text/html;+charset=utf-8 1071.1705ms
+2021-09-28 17:08:11.499 +03:00 [INF] Handled /js/jquery-3.3.1.js, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:08:11.500 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - - - 404 - - 13.5827ms
+2021-09-28 17:08:12.925 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/Tracking/Reports - -
+2021-09-28 17:08:12.927 +03:00 [INF] Executing endpoint 'TimeTracking.Controllers.TrackingController.Reports (TimeTracking)'
+2021-09-28 17:08:12.936 +03:00 [INF] Route matched with {action = "Reports", controller = "Tracking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Reports(System.Nullable`1[System.Int32]) on controller TimeTracking.Controllers.TrackingController (TimeTracking).
+2021-09-28 17:08:12.937 +03:00 [INF] Entity Framework Core 5.0.9 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-28 17:08:12.938 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-28 17:08:12.939 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-09-28 17:08:12.984 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Surname]
+FROM [Users] AS [u]
+2021-09-28 17:08:12.988 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Date], [r].[Hours], [r].[Notes], [r].[OwnerId]
+FROM [Reports] AS [r]
+2021-09-28 17:08:13.000 +03:00 [INF] Executing ViewResult, running view Reports.
+2021-09-28 17:08:13.016 +03:00 [INF] Executed ViewResult - view Reports executed in 15.8819ms.
+2021-09-28 17:08:13.016 +03:00 [INF] Executed action TimeTracking.Controllers.TrackingController.Reports (TimeTracking) in 79.6869ms
+2021-09-28 17:08:13.016 +03:00 [INF] Executed endpoint 'TimeTracking.Controllers.TrackingController.Reports (TimeTracking)'
+2021-09-28 17:08:13.016 +03:00 [INF] Handled /Tracking/Reports, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:08:13.016 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/Tracking/Reports - - - 200 - text/html;+charset=utf-8 90.8668ms
+2021-09-28 17:08:13.034 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - -
+2021-09-28 17:08:13.034 +03:00 [INF] Handled /js/jquery-3.3.1.js, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:08:13.035 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - - - 404 - - 0.7180ms
+2021-09-28 17:08:13.383 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/ - -
+2021-09-28 17:08:13.383 +03:00 [INF] Executing endpoint 'TimeTracking.Controllers.UserController.Users (TimeTracking)'
+2021-09-28 17:08:13.383 +03:00 [INF] Route matched with {action = "Users", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Users() on controller TimeTracking.Controllers.UserController (TimeTracking).
+2021-09-28 17:08:13.404 +03:00 [INF] Entity Framework Core 5.0.9 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-09-28 17:08:13.408 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-09-28 17:08:13.409 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-09-28 17:08:13.409 +03:00 [INF] Main action
+2021-09-28 17:08:13.410 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-09-28 17:08:13.411 +03:00 [INF] Executing ViewResult, running view Users.
+2021-09-28 17:08:13.412 +03:00 [INF] Executed ViewResult - view Users executed in 0.9235ms.
+2021-09-28 17:08:13.412 +03:00 [INF] Executed action TimeTracking.Controllers.UserController.Users (TimeTracking) in 28.8155ms
+2021-09-28 17:08:13.412 +03:00 [INF] Executed endpoint 'TimeTracking.Controllers.UserController.Users (TimeTracking)'
+2021-09-28 17:08:13.412 +03:00 [INF] Handled /, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:08:13.412 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/ - - - 200 - text/html;+charset=utf-8 29.4526ms
+2021-09-28 17:08:13.425 +03:00 [INF] Request starting HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - -
+2021-09-28 17:08:13.426 +03:00 [INF] Handled /js/jquery-3.3.1.js, System.Security.Claims.ClaimsIdentity
+2021-09-28 17:08:13.427 +03:00 [INF] Request finished HTTP/2 GET https://localhost:44320/js/jquery-3.3.1.js - - - 404 - - 1.1086ms

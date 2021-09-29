@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,10 +15,11 @@ namespace TimeTracking.Controllers
        
         private UsersContext db;
         private UserService userService;
-
-        public UserController(UsersContext context, UserService userService)
+        readonly IDiagnosticContext _diagnosticContext;
+        public UserController(UsersContext context, UserService userService, IDiagnosticContext diagnosticContext)
         {
-            
+            _diagnosticContext = diagnosticContext ??
+                throw new ArgumentNullException(nameof(diagnosticContext));
             db = context;
             this.userService = userService;
         }
@@ -118,6 +120,7 @@ namespace TimeTracking.Controllers
         public async Task<IActionResult> Users()
         {
             Log.Information("Main action");
+            _diagnosticContext.Set("CatalogLoadTime", 1423);
 
             return View(await db.Users.ToListAsync());
         }

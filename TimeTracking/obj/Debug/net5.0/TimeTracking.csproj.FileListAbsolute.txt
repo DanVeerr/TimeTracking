@@ -268,7 +268,6 @@ C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\runti
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\TimeTracking.csproj.AssemblyReference.cache
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\TimeTracking.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\TimeTracking.AssemblyInfoInputs.cache
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\TimeTracking.AssemblyInfo.cs
@@ -292,8 +291,6 @@ C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\Razor
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\Razor\Views\Tracking\Reports.cshtml.g.cs
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\Razor\Views\Новая папка\_Layout.cshtml.g.cs
-C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\Razor\Views\Новая папка\_LoginPartial.cshtml.g.cs
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\TimeTracking.RazorTargetAssemblyInfo.cache
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\TimeTracking.RazorTargetAssemblyInfo.cs
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\TimeTracking.Views.pdb
@@ -308,7 +305,6 @@ C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\Razor
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\Razor\Views\User\Users.cshtml.g.cs
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\Serilog.dll
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\Serilog.Sinks.File.dll
-C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\Serilog.AspNetCore.dll
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\Serilog.Extensions.Hosting.dll
@@ -317,3 +313,10 @@ C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\Seril
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\Serilog.Settings.Configuration.dll
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\Serilog.Sinks.Console.dll
 C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\Serilog.Sinks.Debug.dll
+C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\libman.json
+C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\TimeTracking.csproj.AssemblyReference.cache
+C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\Serilog.Enrichers.Thread.dll
+C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\Serilog.Enrichers.AspNetCore.dll
+C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\Serilog.Enrichers.ClientInfo.dll
+C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\bin\Debug\net5.0\SerilogWeb.Classic.dll
+C:\Users\danii\Documents\GitHub\TimeTracking\TimeTracking\obj\Debug\net5.0\TimeTracking.MvcApplicationPartsAssemblyInfo.cs
