@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sP1XSCkI8OmF0ktFOvn1Svup/O/KDR1vPRFd9cGvyyNIUrJ8iig5TZ6yXbfuZDCX/JHwwM62BqVAgApWIRb10A==",
+  "dgSpecHash": "zI3+2cbwUj9q3GQx7VDqXeef+FhXhpmKXqTxeE7uG68mFvZbkiZXqQ00kQeSPmE/Vi4j9VfGPjFI27cc7DNzrw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\danii\\Documents\\GitHub\\TimeTracking\\TimeTracking\\TimeTracking.csproj",
+  "projectFilePath": "C:\\Users\\danii\\Source\\Repos\\TimeTracking\\TimeTracking\\TimeTracking.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danii\\.nuget\\packages\\bootstrap\\5.1.0\\bootstrap.5.1.0.nupkg.sha512",
     "C:\\Users\\danii\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
@@ -194,7 +194,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'SerilogWeb.Classic 5.1.66' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "message": "Пакет \"SerilogWeb.Classic 5.1.66\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
       "libraryId": "SerilogWeb.Classic",
       "targetGraphs": [
         "net5.0"

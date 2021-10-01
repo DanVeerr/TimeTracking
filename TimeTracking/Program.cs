@@ -29,13 +29,13 @@ namespace TimeTracking
                 .Enrich.WithClientIp()
                 .Enrich.FromLogContext()
                 .CreateLogger();
-            //using (LogContext.PushProperty("A", 1))
-            //Log.Logger = new LoggerConfiguration()
-            //    //.MinimumLevel.Information()
-            //    //.Enrich.FromLogContext()
-            //    .ReadFrom.Configuration(configuration.GetSection("Serilog"))
-            //    .CreateLogger();
-            Log.Information("Starting up!");
+
+            //    Log.Logger = new LoggerConfiguration()
+            //        .MinimumLevel.Information()
+            //        .WriteTo.File("log-.txt", rollingInterval: RollingInterval.Day)
+            //        .Enrich.FromLogContext()
+            //        .CreateBootstrapLogger();
+            //Log.Information("Starting up!");
             try
             {
                 Log.Information("Starting web host");

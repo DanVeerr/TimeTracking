@@ -1,0 +1,930 @@
+2021-10-01 18:47:58.589 +05:00 [INF] Starting up!
+2021-10-01 18:47:58.641 +05:00 [INF] Starting web host
+2021-10-01 18:48:00.744 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-01 18:48:00.747 +05:00 [INF] Hosting environment: Development
+2021-10-01 18:48:00.748 +05:00 [INF] Content root path: C:\Users\danii\Source\Repos\TimeTracking\TimeTracking
+2021-10-01 18:48:01.304 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 18:48:04.668 +05:00 [INF] Executed DbCommand (98ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [Timetracking];
+2021-10-01 18:48:04.698 +05:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [Timetracking] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2021-10-01 18:48:04.710 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 18:48:04.843 +05:00 [INF] Executed DbCommand (71ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Reports] (
+    [Id] int NOT NULL IDENTITY,
+    [Notes] nvarchar(max) NOT NULL,
+    [Hours] int NOT NULL,
+    [OwnerId] int NOT NULL,
+    [Date] datetime2 NOT NULL,
+    CONSTRAINT [PK_Reports] PRIMARY KEY ([Id])
+);
+2021-10-01 18:48:04.855 +05:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Firstname] nvarchar(max) NOT NULL,
+    [Surname] nvarchar(max) NOT NULL,
+    [Patronymic] nvarchar(max) NULL,
+    [Email] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2021-10-01 18:48:04.899 +05:00 [INF] Main action
+2021-10-01 18:48:05.050 +05:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 18:48:05.227 +05:00 [INF] HTTP GET / responded 200 in 4435.4433 ms
+2021-10-01 18:48:05.272 +05:00 [INF] HTTP GET /js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 responded 200 in 11.1324 ms
+2021-10-01 18:48:05.279 +05:00 [INF] HTTP GET /css/bootstrap.min.css responded 200 in 17.6074 ms
+2021-10-01 18:48:05.310 +05:00 [INF] HTTP GET /js/bootstrap.bundle.min.js responded 200 in 43.6834 ms
+2021-10-01 18:48:05.314 +05:00 [INF] HTTP GET /lib/jquery/jquery.min.js responded 200 in 51.7302 ms
+2021-10-01 18:48:05.341 +05:00 [INF] HTTP GET /favicon.ico responded 200 in 2.9120 ms
+2021-10-01 18:48:14.677 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 18:48:14.678 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 18:48:14.723 +05:00 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 18:48:14.769 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 18:48:14.773 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Date], [r].[Hours], [r].[Notes], [r].[OwnerId]
+FROM [Reports] AS [r]
+2021-10-01 18:48:14.785 +05:00 [INF] HTTP GET /Tracking/Reports responded 200 in 135.1236 ms
+2021-10-01 18:48:14.799 +05:00 [INF] HTTP GET /css/bootstrap.min.css responded 304 in 1.7568 ms
+2021-10-01 18:48:14.799 +05:00 [INF] HTTP GET /js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 responded 304 in 2.2009 ms
+2021-10-01 18:48:14.800 +05:00 [INF] HTTP GET /lib/jquery/jquery.min.js responded 304 in 2.7001 ms
+2021-10-01 18:48:14.800 +05:00 [INF] HTTP GET /js/bootstrap.bundle.min.js responded 304 in 2.8171 ms
+2021-10-01 18:48:17.557 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 18:48:17.560 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 18:48:17.561 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 18:48:17.561 +05:00 [INF] Main action
+2021-10-01 18:48:17.563 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 18:48:17.564 +05:00 [INF] HTTP GET / responded 200 in 28.7936 ms
+2021-10-01 18:48:17.923 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 18:48:17.924 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 18:48:17.925 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 18:48:17.925 +05:00 [INF] Main action
+2021-10-01 18:48:17.926 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 18:48:17.927 +05:00 [INF] HTTP GET / responded 200 in 4.0546 ms
+2021-10-01 19:19:45.592 +05:00 [INF] Starting up!
+2021-10-01 19:19:45.656 +05:00 [INF] Starting web host
+2021-10-01 19:20:19.097 +05:00 [INF] Starting up!
+2021-10-01 19:20:19.158 +05:00 [INF] Starting web host
+2021-10-01 19:21:20.705 +05:00 [INF] Starting up!
+2021-10-01 19:21:20.782 +05:00 [INF] Starting web host
+2021-10-01 19:22:25.093 +05:00 [INF] Starting up!
+2021-10-01 19:22:25.161 +05:00 [INF] Starting web host
+2021-10-01 19:22:56.480 +05:00 [INF] Starting up!
+2021-10-01 19:22:56.535 +05:00 [INF] Starting web host
+2021-10-01 19:23:42.476 +05:00 [INF] Starting up!
+2021-10-01 19:23:42.532 +05:00 [INF] Starting web host
+2021-10-01 19:24:54.432 +05:00 [INF] Starting up!
+2021-10-01 19:24:54.492 +05:00 [INF] Starting web host
+2021-10-01 19:25:34.919 +05:00 [INF] Starting up!
+2021-10-01 19:25:34.969 +05:00 [INF] Starting web host
+2021-10-01 19:28:05.133 +05:00 [INF] Starting web host
+2021-10-01 19:28:05.938 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-01 19:28:05.947 +05:00 [INF] Hosting environment: Development
+2021-10-01 19:28:05.948 +05:00 [INF] Content root path: C:\Users\danii\Source\Repos\TimeTracking\TimeTracking
+2021-10-01 19:28:06.358 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:28:06.584 +05:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:28:06.609 +05:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:28:06.611 +05:00 [INF] Main action
+2021-10-01 19:28:06.763 +05:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:28:06.891 +05:00 [INF] HTTP GET / responded 200 in 932.8435 ms
+2021-10-01 19:28:06.917 +05:00 [INF] HTTP GET /lib/jquery/jquery.min.js responded 304 in 6.7414 ms
+2021-10-01 19:28:06.917 +05:00 [INF] HTTP GET /css/bootstrap.min.css responded 304 in 10.5827 ms
+2021-10-01 19:28:06.917 +05:00 [INF] HTTP GET /js/bootstrap.bundle.min.js responded 304 in 6.9497 ms
+2021-10-01 19:28:06.917 +05:00 [INF] HTTP GET /js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 responded 304 in 7.1892 ms
+2021-10-01 19:28:08.013 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:28:08.015 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:28:08.016 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:28:08.016 +05:00 [INF] Main action
+2021-10-01 19:28:08.018 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:28:08.020 +05:00 [INF] HTTP GET / responded 200 in 8.7131 ms
+2021-10-01 19:28:08.523 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:28:08.527 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:28:08.528 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:28:08.571 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:28:08.575 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Date], [r].[Hours], [r].[Notes], [r].[OwnerId]
+FROM [Reports] AS [r]
+2021-10-01 19:28:08.582 +05:00 [INF] HTTP GET /Tracking/Reports responded 200 in 88.5234 ms
+2021-10-01 19:28:11.612 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:28:11.613 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:28:11.615 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:28:11.615 +05:00 [INF] Main action
+2021-10-01 19:28:11.616 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:28:11.618 +05:00 [INF] HTTP GET / responded 200 in 5.9971 ms
+2021-10-01 19:28:12.777 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:28:12.778 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:28:12.778 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:28:12.806 +05:00 [INF] HTTP GET /User/Create responded 200 in 30.2100 ms
+2021-10-01 19:28:32.051 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:28:32.051 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:28:32.052 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:28:32.092 +05:00 [INF] Executed DbCommand (13ms) [Parameters=[@__Email_0='?' (Size = 4000), @__Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+WHERE ([u].[Email] = @__Email_0) AND ([u].[Id] <> @__Id_1)
+2021-10-01 19:28:32.107 +05:00 [INF] HTTP GET /User/CheckEmail?Email=daniil.karimov2301%40gmail.com&Id= responded 200 in 57.9422 ms
+2021-10-01 19:28:32.931 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:28:32.932 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:28:32.933 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:28:33.042 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Patronymic], [Surname])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2021-10-01 19:28:33.068 +05:00 [INF] HTTP POST /User/Create responded 302 in 141.5240 ms
+2021-10-01 19:28:33.070 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:28:33.071 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:28:33.072 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:28:33.072 +05:00 [INF] Main action
+2021-10-01 19:28:33.073 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:28:33.077 +05:00 [INF] HTTP GET / responded 200 in 7.1078 ms
+2021-10-01 19:28:38.337 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:28:38.337 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:28:38.338 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:28:38.339 +05:00 [INF] HTTP GET /User/Create responded 200 in 3.2537 ms
+2021-10-01 19:28:56.137 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:28:56.137 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:28:56.138 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:28:56.143 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__Email_0='?' (Size = 4000), @__Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+WHERE ([u].[Email] = @__Email_0) AND ([u].[Id] <> @__Id_1)
+2021-10-01 19:28:56.143 +05:00 [INF] HTTP GET /User/CheckEmail?Email=Ivanov.Petr%40mail.ru&Id= responded 200 in 6.5085 ms
+2021-10-01 19:28:56.223 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:28:56.223 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:28:56.225 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:28:56.227 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Patronymic], [Surname])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2021-10-01 19:28:56.229 +05:00 [INF] HTTP POST /User/Create responded 302 in 6.4968 ms
+2021-10-01 19:28:56.234 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:28:56.234 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:28:56.235 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:28:56.235 +05:00 [INF] Main action
+2021-10-01 19:28:56.236 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:28:56.237 +05:00 [INF] HTTP GET / responded 200 in 3.2976 ms
+2021-10-01 19:28:57.718 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:28:57.718 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:28:57.719 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:28:57.721 +05:00 [INF] HTTP GET /User/Create responded 200 in 2.9528 ms
+2021-10-01 19:29:11.109 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:29:11.110 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:29:11.111 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:29:11.111 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__Email_0='?' (Size = 4000), @__Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+WHERE ([u].[Email] = @__Email_0) AND ([u].[Id] <> @__Id_1)
+2021-10-01 19:29:11.112 +05:00 [INF] HTTP GET /User/CheckEmail?Email=daniil.karimov2301%40gmail.com&Id= responded 200 in 2.7642 ms
+2021-10-01 19:29:15.536 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:29:15.536 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:29:15.537 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:29:15.538 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__Email_0='?' (Size = 4000), @__Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+WHERE ([u].[Email] = @__Email_0) AND ([u].[Id] <> @__Id_1)
+2021-10-01 19:29:15.538 +05:00 [INF] HTTP GET /User/CheckEmail?Email=daniil.karimov%40gmail.com&Id= responded 200 in 2.1838 ms
+2021-10-01 19:29:16.144 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:29:16.144 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:29:16.145 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:29:16.146 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Firstname], [Patronymic], [Surname])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2021-10-01 19:29:16.150 +05:00 [INF] HTTP POST /User/Create responded 302 in 6.8661 ms
+2021-10-01 19:29:16.152 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:29:16.152 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:29:16.153 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:29:16.153 +05:00 [INF] Main action
+2021-10-01 19:29:16.154 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:29:16.155 +05:00 [INF] HTTP GET / responded 200 in 3.1274 ms
+2021-10-01 19:29:17.669 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:29:17.669 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:29:17.670 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:29:17.672 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:29:17.673 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Date], [r].[Hours], [r].[Notes], [r].[OwnerId]
+FROM [Reports] AS [r]
+2021-10-01 19:29:17.677 +05:00 [INF] HTTP GET /Tracking/Reports responded 200 in 8.5924 ms
+2021-10-01 19:29:18.640 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:29:18.640 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:29:18.641 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:29:18.649 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__UserId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-01 19:29:18.650 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:29:18.651 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Date], [r].[Hours], [r].[Notes], [r].[OwnerId]
+FROM [Reports] AS [r]
+2021-10-01 19:29:18.652 +05:00 [INF] HTTP GET /Tracking/Reports?userId=1 responded 200 in 12.7487 ms
+2021-10-01 19:29:19.801 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:29:19.802 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:29:19.803 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:29:19.804 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:29:19.806 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:29:19.845 +05:00 [INF] HTTP GET /Tracking/Create?ownerid=1 responded 200 in 45.9463 ms
+2021-10-01 19:29:27.424 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:29:27.425 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:29:27.425 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:29:27.428 +05:00 [INF] HTTP GET /Tracking/CheckDate?Date=2021-10-01 responded 200 in 4.9835 ms
+2021-10-01 19:29:27.518 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:29:27.518 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:29:27.519 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:29:31.486 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Reports] ([Date], [Hours], [Notes], [OwnerId])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Reports]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2021-10-01 19:29:31.487 +05:00 [INF] HTTP POST /Tracking/Create responded 302 in 3971.3458 ms
+2021-10-01 19:29:31.489 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:29:31.490 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:29:31.490 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:29:31.491 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:29:31.492 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Date], [r].[Hours], [r].[Notes], [r].[OwnerId]
+FROM [Reports] AS [r]
+2021-10-01 19:29:31.494 +05:00 [INF] HTTP GET /Tracking/Reports responded 200 in 5.1155 ms
+2021-10-01 19:29:34.171 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:29:34.171 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:29:34.172 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:29:34.173 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:29:34.174 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:29:34.177 +05:00 [INF] HTTP GET /Tracking/Create responded 200 in 6.1978 ms
+2021-10-01 19:30:35.325 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:30:35.325 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:30:35.326 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:30:35.326 +05:00 [INF] HTTP GET /Tracking/CheckDate?Date=2021-09-28 responded 200 in 3.5888 ms
+2021-10-01 19:30:35.437 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:30:35.437 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:30:35.438 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:30:35.440 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Reports] ([Date], [Hours], [Notes], [OwnerId])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Reports]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2021-10-01 19:30:35.441 +05:00 [INF] HTTP POST /Tracking/Create responded 302 in 3.6423 ms
+2021-10-01 19:30:35.443 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:30:35.444 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:30:35.444 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:30:35.445 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:30:35.446 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Date], [r].[Hours], [r].[Notes], [r].[OwnerId]
+FROM [Reports] AS [r]
+2021-10-01 19:30:35.447 +05:00 [INF] HTTP GET /Tracking/Reports responded 200 in 3.5805 ms
+2021-10-01 19:30:37.951 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:30:37.952 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:30:37.953 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:30:37.954 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:30:37.956 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:30:37.957 +05:00 [INF] HTTP GET /Tracking/Create responded 200 in 6.5093 ms
+2021-10-01 19:30:37.973 +05:00 [INF] HTTP GET /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js responded 304 in 0.1559 ms
+2021-10-01 19:30:37.973 +05:00 [INF] HTTP GET /lib/jquery-validation/jquery.validate.min.js responded 304 in 0.1794 ms
+2021-10-01 19:30:47.587 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:30:47.587 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:30:47.588 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:30:47.589 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__UserId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-01 19:30:47.589 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:30:47.590 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Date], [r].[Hours], [r].[Notes], [r].[OwnerId]
+FROM [Reports] AS [r]
+2021-10-01 19:30:47.591 +05:00 [INF] HTTP GET /Tracking/Reports?userId=1 responded 200 in 4.9284 ms
+2021-10-01 19:30:49.052 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:30:49.053 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:30:49.054 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:30:49.054 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Id] = @__UserId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-01 19:30:49.055 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:30:49.056 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Date], [r].[Hours], [r].[Notes], [r].[OwnerId]
+FROM [Reports] AS [r]
+2021-10-01 19:30:49.057 +05:00 [INF] HTTP GET /Tracking/Reports?userId=3 responded 200 in 5.9402 ms
+2021-10-01 19:30:51.436 +05:00 [INF] Entity Framework Core 5.0.10 initialized 'UsersContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-01 19:30:51.437 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-10-01 19:30:51.438 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2021-10-01 19:30:51.438 +05:00 [INF] Main action
+2021-10-01 19:30:51.438 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[Firstname], [u].[Patronymic], [u].[Surname]
+FROM [Users] AS [u]
+2021-10-01 19:30:51.439 +05:00 [INF] HTTP GET / responded 200 in 3.4614 ms

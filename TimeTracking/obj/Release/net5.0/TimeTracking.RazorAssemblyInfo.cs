@@ -11,7 +11,7 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("Serilog.Enrichers.AspNetCore")]
+[assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.RelatedAssemblyAttribute("TimeTracking.Views")]
 
 // Создано классом WriteCodeFragment MSBuild.
 
